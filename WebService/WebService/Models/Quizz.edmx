@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB_A16628_OmnibusModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Odpowiedzi">
+          <Key>
+            <PropertyRef Name="IdOdpowiedzi" />
+          </Key>
+          <Property Name="IdOdpowiedzi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdPytania" Type="int" Nullable="false" />
+          <Property Name="Tekst" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NrOdpowiedzi" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pytania">
+          <Key>
+            <PropertyRef Name="IdPytania" />
+          </Key>
+          <Property Name="IdPytania" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NrOdpPop" Type="int" Nullable="false" />
+          <Property Name="Tekst" Type="varchar" MaxLength="75" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Uzytkownicy">
+          <Key>
+            <PropertyRef Name="IdUzytkownika" />
+          </Key>
+          <Property Name="IdUzytkownika" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazwa" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Haslo" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Wyniki">
+          <Key>
+            <PropertyRef Name="IdWyniku" />
+          </Key>
+          <Property Name="IdWyniku" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUzytkownika" Type="int" Nullable="false" />
+          <Property Name="Punkty" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Odpowiedzi_Pytania">
+          <End Role="Pytania" Type="Self.Pytania" Multiplicity="1" />
+          <End Role="Odpowiedzi" Type="Self.Odpowiedzi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pytania">
+              <PropertyRef Name="IdPytania" />
+            </Principal>
+            <Dependent Role="Odpowiedzi">
+              <PropertyRef Name="IdPytania" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Wyniki_Uzytkownicy">
+          <End Role="Uzytkownicy" Type="Self.Uzytkownicy" Multiplicity="1" />
+          <End Role="Wyniki" Type="Self.Wyniki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uzytkownicy">
+              <PropertyRef Name="IdUzytkownika" />
+            </Principal>
+            <Dependent Role="Wyniki">
+              <PropertyRef Name="IdUzytkownika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_A16628_OmnibusModelStoreContainer">
+          <EntitySet Name="Odpowiedzi" EntityType="Self.Odpowiedzi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pytania" EntityType="Self.Pytania" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Uzytkownicy" EntityType="Self.Uzytkownicy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wyniki" EntityType="Self.Wyniki" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Odpowiedzi_Pytania" Association="Self.FK_Odpowiedzi_Pytania">
+            <End Role="Pytania" EntitySet="Pytania" />
+            <End Role="Odpowiedzi" EntitySet="Odpowiedzi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Wyniki_Uzytkownicy" Association="Self.FK_Wyniki_Uzytkownicy">
+            <End Role="Uzytkownicy" EntitySet="Uzytkownicy" />
+            <End Role="Wyniki" EntitySet="Wyniki" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_A16628_OmnibusModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Odpowiedz">
+          <Key>
+            <PropertyRef Name="IdOdpowiedzi" />
+          </Key>
+          <Property Name="IdOdpowiedzi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPytania" Type="Int32" Nullable="false" />
+          <Property Name="Tekst" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NrOdpowiedzi" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Pytania" Relationship="Self.FK_Odpowiedzi_Pytania" FromRole="Odpowiedzi" ToRole="Pytania" />
+        </EntityType>
+        <EntityType Name="Pytanie">
+          <Key>
+            <PropertyRef Name="IdPytania" />
+          </Key>
+          <Property Name="IdPytania" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NrOdpPop" Type="Int32" Nullable="false" />
+          <Property Name="Tekst" Type="String" MaxLength="75" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Odpowiedzi" Relationship="Self.FK_Odpowiedzi_Pytania" FromRole="Pytania" ToRole="Odpowiedzi" />
+        </EntityType>
+        <EntityType Name="Uzytkownik">
+          <Key>
+            <PropertyRef Name="IdUzytkownika" />
+          </Key>
+          <Property Name="IdUzytkownika" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazwa" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Haslo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Wyniki" Relationship="Self.FK_Wyniki_Uzytkownicy" FromRole="Uzytkownicy" ToRole="Wyniki" />
+        </EntityType>
+        <EntityType Name="Wynik">
+          <Key>
+            <PropertyRef Name="IdWyniku" />
+          </Key>
+          <Property Name="IdWyniku" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUzytkownika" Type="Int32" Nullable="false" />
+          <Property Name="Punkty" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Uzytkownicy" Relationship="Self.FK_Wyniki_Uzytkownicy" FromRole="Wyniki" ToRole="Uzytkownicy" />
+        </EntityType>
+        <Association Name="FK_Odpowiedzi_Pytania">
+          <End Role="Pytania" Type="DB_A16628_OmnibusModel.Pytanie" Multiplicity="1" />
+          <End Role="Odpowiedzi" Type="DB_A16628_OmnibusModel.Odpowiedz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pytania">
+              <PropertyRef Name="IdPytania" />
+            </Principal>
+            <Dependent Role="Odpowiedzi">
+              <PropertyRef Name="IdPytania" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Wyniki_Uzytkownicy">
+          <End Role="Uzytkownicy" Type="DB_A16628_OmnibusModel.Uzytkownik" Multiplicity="1" />
+          <End Role="Wyniki" Type="DB_A16628_OmnibusModel.Wynik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uzytkownicy">
+              <PropertyRef Name="IdUzytkownika" />
+            </Principal>
+            <Dependent Role="Wyniki">
+              <PropertyRef Name="IdUzytkownika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_A16628_OmnibusEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Odpowiedzi" EntityType="DB_A16628_OmnibusModel.Odpowiedz" />
+          <EntitySet Name="Pytania" EntityType="DB_A16628_OmnibusModel.Pytanie" />
+          <EntitySet Name="Uzytkownicy" EntityType="DB_A16628_OmnibusModel.Uzytkownik" />
+          <EntitySet Name="Wyniki" EntityType="DB_A16628_OmnibusModel.Wynik" />
+          <AssociationSet Name="FK_Odpowiedzi_Pytania" Association="Self.FK_Odpowiedzi_Pytania">
+            <End Role="Pytania" EntitySet="Pytania" />
+            <End Role="Odpowiedzi" EntitySet="Odpowiedzi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Wyniki_Uzytkownicy" Association="Self.FK_Wyniki_Uzytkownicy">
+            <End Role="Uzytkownicy" EntitySet="Uzytkownicy" />
+            <End Role="Wyniki" EntitySet="Wyniki" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_A16628_OmnibusModelStoreContainer" CdmEntityContainer="DB_A16628_OmnibusEntities">
+          <EntitySetMapping Name="Odpowiedzi">
+            <EntityTypeMapping TypeName="DB_A16628_OmnibusModel.Odpowiedz">
+              <MappingFragment StoreEntitySet="Odpowiedzi">
+                <ScalarProperty Name="IdOdpowiedzi" ColumnName="IdOdpowiedzi" />
+                <ScalarProperty Name="IdPytania" ColumnName="IdPytania" />
+                <ScalarProperty Name="Tekst" ColumnName="Tekst" />
+                <ScalarProperty Name="NrOdpowiedzi" ColumnName="NrOdpowiedzi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pytania">
+            <EntityTypeMapping TypeName="DB_A16628_OmnibusModel.Pytanie">
+              <MappingFragment StoreEntitySet="Pytania">
+                <ScalarProperty Name="IdPytania" ColumnName="IdPytania" />
+                <ScalarProperty Name="NrOdpPop" ColumnName="NrOdpPop" />
+                <ScalarProperty Name="Tekst" ColumnName="Tekst" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uzytkownicy">
+            <EntityTypeMapping TypeName="DB_A16628_OmnibusModel.Uzytkownik">
+              <MappingFragment StoreEntitySet="Uzytkownicy">
+                <ScalarProperty Name="IdUzytkownika" ColumnName="IdUzytkownika" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Haslo" ColumnName="Haslo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wyniki">
+            <EntityTypeMapping TypeName="DB_A16628_OmnibusModel.Wynik">
+              <MappingFragment StoreEntitySet="Wyniki">
+                <ScalarProperty Name="IdWyniku" ColumnName="IdWyniku" />
+                <ScalarProperty Name="IdUzytkownika" ColumnName="IdUzytkownika" />
+                <ScalarProperty Name="Punkty" ColumnName="Punkty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

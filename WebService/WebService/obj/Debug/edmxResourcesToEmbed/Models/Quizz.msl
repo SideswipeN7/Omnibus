@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_A16628_OmnibusModelStoreContainer" CdmEntityContainer="DB_A16628_OmnibusEntities">
+    <EntitySetMapping Name="Odpowiedzi">
+      <EntityTypeMapping TypeName="DB_A16628_OmnibusModel.Odpowiedz">
+        <MappingFragment StoreEntitySet="Odpowiedzi">
+          <ScalarProperty Name="IdOdpowiedzi" ColumnName="IdOdpowiedzi" />
+          <ScalarProperty Name="IdPytania" ColumnName="IdPytania" />
+          <ScalarProperty Name="Tekst" ColumnName="Tekst" />
+          <ScalarProperty Name="NrOdpowiedzi" ColumnName="NrOdpowiedzi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pytania">
+      <EntityTypeMapping TypeName="DB_A16628_OmnibusModel.Pytanie">
+        <MappingFragment StoreEntitySet="Pytania">
+          <ScalarProperty Name="IdPytania" ColumnName="IdPytania" />
+          <ScalarProperty Name="NrOdpPop" ColumnName="NrOdpPop" />
+          <ScalarProperty Name="Tekst" ColumnName="Tekst" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Uzytkownicy">
+      <EntityTypeMapping TypeName="DB_A16628_OmnibusModel.Uzytkownik">
+        <MappingFragment StoreEntitySet="Uzytkownicy">
+          <ScalarProperty Name="IdUzytkownika" ColumnName="IdUzytkownika" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="Haslo" ColumnName="Haslo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Wyniki">
+      <EntityTypeMapping TypeName="DB_A16628_OmnibusModel.Wynik">
+        <MappingFragment StoreEntitySet="Wyniki">
+          <ScalarProperty Name="IdWyniku" ColumnName="IdWyniku" />
+          <ScalarProperty Name="IdUzytkownika" ColumnName="IdUzytkownika" />
+          <ScalarProperty Name="Punkty" ColumnName="Punkty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
