@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_my_scores"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.asuper.omnibus.MyScoresActivity"
+    android:background="@color/colorPrimary"
+    >
+
+    <TextView
+        android:text="Moje Wyniki"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4"
+        android:textSize="45sp"
+        android:textStyle="normal|bold"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_blue_dark"
+        android:fontFamily="sans-serif"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center|bottom"
+        >
+
+        <ListView
+            android:layout_gravity="top"
+            android:layout_width="match_parent"
+            android:layout_height="367dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="37dp"
+            android:id="@+id/lvMyScores"
+            android:headerDividersEnabled="false"/>
+
+        <Button
+            android:layout_gravity="bottom"
+            android:onClick="onClickBack"
+            android:text="Powrót"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btBack"
+            android:background="@color/colorPrimary"
+            android:textSize="36sp"
+            android:textStyle="normal|bold"
+            android:fontFamily="casual"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_top10"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.asuper.omnibus.Top10Activity"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
+
+    <TextView
+        android:text="TOP 10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:textSize="45sp"
+        android:textStyle="normal|bold"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_blue_dark"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:text="1) TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvG1"
+            android:fontFamily="sans-serif"
+            android:textSize="36sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="normal|bold"/>
+
+        <TextView
+            android:text="2) TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvG2"
+            android:textSize="36sp"
+            android:textColor="@color/black_overlay"
+            android:textStyle="normal|bold"/>
+
+        <TextView
+            android:text="3) TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvG3"
+            android:textSize="36sp"
+            android:textColor="@color/colorAccent"
+            android:textStyle="normal|bold"/>
+
+        <TextView
+            android:text="4) "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvG4"
+            android:textSize="30sp"
+            android:textStyle="normal|bold"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:text="5) "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvG5"
+            android:textSize="30sp"
+            android:textStyle="normal|bold"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:text="6) "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvG6"
+            android:textSize="30sp"
+            android:textStyle="normal|bold"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:text="7) "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvG7"
+            android:textSize="30sp"
+            android:textStyle="normal|bold"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:text="8) "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvG8"
+            android:textSize="30sp"
+            android:textStyle="normal|bold"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:text="9) "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvG9"
+            android:textSize="30sp"
+            android:textStyle="normal|bold"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:text="10) "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvG10"
+            android:textSize="30sp"
+            android:textStyle="normal|bold"
+            android:textColor="@android:color/black"/>
+
+        <Button
+            android:text="Powrót"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/btReturn"
+            android:textSize="36sp"
+            android:fontFamily="casual"
+            android:onClick="onClickGoBack"
+            android:background="@color/colorPrimary"
+            android:textStyle="normal|bold"/>
+
+    </LinearLayout>
+</LinearLayout>
