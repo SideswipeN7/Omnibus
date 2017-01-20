@@ -90,20 +90,20 @@ namespace WebService.Controllers
     //        return StatusCode(HttpStatusCode.NoContent);
     //    }
 
-    //    // POST: api/Uzytkowniks
-    //    [ResponseType(typeof(Uzytkownik))]
-    //    public IHttpActionResult PostUzytkownik(Uzytkownik uzytkownik)
-    //    {
-    //        if (!ModelState.IsValid)
-    //        {
-    //            return BadRequest(ModelState);
-    //        }
+        // POST: api/Uzytkowniks
+        [ResponseType(typeof(Wiadomosc))]
+        public Wiadomosc PostUzytkownik(Uzytkownik uzytkownik)
+        {
+            if (!ModelState.IsValid)
+            {
+                return new Wiadomosc(false);
+            }
 
-    //        db.Uzytkownicy.Add(uzytkownik);
-    //        db.SaveChanges();
+            db.Uzytkownicy.Add(uzytkownik);
+            db.SaveChanges();
 
-    //        return CreatedAtRoute("DefaultApi", new { id = uzytkownik.IdUzytkownika }, uzytkownik);
-    //    }
+            return new Wiadomosc(true);
+        }
 
     //    // DELETE: api/Uzytkowniks/5
     //    [ResponseType(typeof(Uzytkownik))]

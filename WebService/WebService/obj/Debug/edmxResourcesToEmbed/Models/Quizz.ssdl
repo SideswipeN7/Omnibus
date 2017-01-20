@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="DB_A16628_OmnibusModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="DB_A16628_OmnibusModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
   <EntityType Name="Odpowiedzi">
     <Key>
       <PropertyRef Name="IdOdpowiedzi" />
@@ -58,10 +58,10 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="DB_A16628_OmnibusModelStoreContainer">
-    <EntitySet Name="Odpowiedzi" EntityType="Self.Odpowiedzi" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Pytania" EntityType="Self.Pytania" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Uzytkownicy" EntityType="Self.Uzytkownicy" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Wyniki" EntityType="Self.Wyniki" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Odpowiedzi" EntityType="Self.Odpowiedzi" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Pytania" EntityType="Self.Pytania" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Uzytkownicy" EntityType="Self.Uzytkownicy" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Wyniki" EntityType="Self.Wyniki" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
     <AssociationSet Name="FK_Odpowiedzi_Pytania" Association="Self.FK_Odpowiedzi_Pytania">
       <End Role="Pytania" EntitySet="Pytania" />
       <End Role="Odpowiedzi" EntitySet="Odpowiedzi" />

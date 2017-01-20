@@ -9,5 +9,9 @@ namespace WebService.Models
     {
         public bool dane1 { get; set; }
         public int dane2 { get; set; }
+
+        public Wiadomosc() { }
+
+        public Wiadomosc(bool b) { dane1 = b; }
     }
 }

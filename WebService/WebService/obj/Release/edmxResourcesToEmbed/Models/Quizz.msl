@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+<Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
   <EntityContainerMapping StorageEntityContainer="DB_A16628_OmnibusModelStoreContainer" CdmEntityContainer="DB_A16628_OmnibusEntities">
     <EntitySetMapping Name="Odpowiedzi">
       <EntityTypeMapping TypeName="DB_A16628_OmnibusModel.Odpowiedz">

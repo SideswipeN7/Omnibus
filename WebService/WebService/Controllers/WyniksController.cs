@@ -19,6 +19,26 @@ namespace WebService.Controllers
             List<Wynik> uniq = new List<Wynik>();
             IQueryable<Uzytkownik> ul = db.Uzytkownicy;
 
+            //var result = (from uzy in db.Uzytkownicy
+            //             join wyn in db.Wyniki on uzy.IdUzytkownika equals wyn.IdUzytkownika
+            //             where wyn.Punkty == Convert.ToInt32(db.Wyniki.Max(x => x.IdUzytkownika == uzy.IdUzytkownika)) 
+            //             select new
+            //             {
+            //                 uzytk = uzy.Nazwa,
+            //                 wyn = wyn.Punkty
+            //             }).ToDictionary(r => r.uzytk, r => r.wyn);
+
+            Dictionary<string, int> tabelaWynikow = new Dictionary<string, int>();
+            foreach (Uzytkownik x in db.Uzytkownicy)
+            {
+                int? result = db.Wyniki.Where(y => y.IdUzytkownika == x.IdUzytkownika).Max(z => z.Punkty);
+
+                if(result.HasValue)
+                    tabelaWynikow.Add(x.Nazwa,result.Value);
+
+            }
+
+            tabelaWynikow.OrderBy(x => x.Value);
 
             for (int i = 0; i < qw.ToArray<Wynik>().Length; i++)
             {
